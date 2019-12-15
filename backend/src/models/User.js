@@ -1,11 +1,22 @@
 import { sequelize } from '../db'
-import Sequelize from 'sequelize'
+import Sequelize, { DataTypes } from 'sequelize'
 
 const User = sequelize.define('User', {
     id: { type: Sequelize.SMALLINT, primaryKey: true },
-    username: Sequelize.STRING,
-    email: Sequelize.STRING,
-    password: Sequelize.STRING,
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
     profile_picture: Sequelize.STRING,
     authKey: Sequelize.STRING,
     accessToken: Sequelize.STRING,

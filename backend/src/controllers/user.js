@@ -1,5 +1,6 @@
 import express from 'express'
 import Model from '../models/User'
+import { encrypt, decrypt } from '../utils/encrypt'
 
 export default async () => {
 
@@ -11,6 +12,7 @@ export default async () => {
             const response = await Model.findAll()
             res.json(response)
         } catch (err) {
+            console.log(err)
             res.json(err)
         }
     })
@@ -21,6 +23,7 @@ export default async () => {
             const response = await Model.findByPk(req.params.id)
             res.json(response)
         } catch (err) {
+            console.log(err)
             res.json(err)
         }
     })
@@ -28,9 +31,14 @@ export default async () => {
     // Register user
     router.post('/', async (req, res) => {
         const body = req.body
+        let password = null
+        if (body.password) {
+            password = encrypt(body.password.toString())
+        }
+        body.password = password
         try {
-            const model = await Model.build(body)
-            await model.save()
+            const model = await Model.create(body)
+            const resp = await model.save()
             res.json(model)
         } catch (err) {
             res.json(err)

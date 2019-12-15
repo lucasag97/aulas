@@ -12,16 +12,16 @@ let app = express();
 app.server = http.createServer(app);
 
 // logger
-app.use(morgan('dev'));
+app.use(morgan('dev'))
 
 // 3rd party middleware
 app.use(cors({
 	exposedHeaders: config.corsHeaders
-}));
+}))
 
 app.use(bodyParser.json({
 	limit : config.bodyLimit
-}));
+}))
 
 // connect to db
 initializeDb(async db => {

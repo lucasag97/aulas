@@ -13,9 +13,10 @@ export default async () => {
 	const entities = [
 		'user', 'sede', 'instituto', 'carrera',
 		'materia', 'edificio', 'aula', 'comision',
-		'ciclo', 'evento', 'especial', 'notificacion'
+		'ciclo', 'evento', 'especial', 'notificacion',
+		'login'
 	]
-
+	
 	entities.forEach(async (entity) => {
 		router.use(`/${entity}`, (await require(`../controllers/${entity}`).default()))
 	})
