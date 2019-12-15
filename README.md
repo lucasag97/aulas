@@ -4,6 +4,8 @@ Aulas version RESTful API
 Correr el backend
 ---------------
 
+Debe tener la base de datos en un servidor local (localhost) con el nombre ***aulas_db***
+
 ```sh
 cd backend/
 
