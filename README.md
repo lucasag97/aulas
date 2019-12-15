@@ -14,6 +14,9 @@ npm install
 npm run dev
 
 ```
+
+Los endpoints están bajo el prefijo `api/`. Por ejemplo para local en el puerto **8080**, la url para el recurso **sede** sería `http://localhost:8080/api/sede`
+
 Correr el frontend
 ------
 ```sh
