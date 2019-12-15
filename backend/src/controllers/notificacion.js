@@ -14,13 +14,22 @@ export default async () => {
         try {
             if (sender) {
                 const response = await Model.findAllBySender(sender)
+                for (var i in response) {
+                    response[i].notificacion = decrypt(response[i].notificacion)
+                }
                 return res.json(response)
             }
             if (receiver) {
                 const response = await Model.findAllByReceiver(receiver)
+                for (var i in response) {
+                    response[i].notificacion = decrypt(response[i].notificacion)
+                }
                 return res.json(response)
             }
             const response = await Model.find(filters)
+            for (var i in response) {
+                response[i].notificacion = decrypt(response[i].notificacion)
+            }
             return res.json(response)
         } catch (err) {
             console.log(err)
