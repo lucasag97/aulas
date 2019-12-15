@@ -31,16 +31,29 @@ export default async () => {
     // Register user
     router.post('/', async (req, res) => {
         const body = req.body
+        let user = null
+        let email = null
         let password = null
         if (body.password) {
             password = encrypt(body.password.toString())
         }
         body.password = password
         try {
+            if (body.username) {
+                user = await Model.findOne({ where: { username: body.username } })
+            }
+            if (body.email) {
+                email = await Model.findOne({ where: { email: body.email } })
+            }
+            if (user || email) {
+                res.json({ message: 'User or email already exists' })
+                return
+            }
             const model = await Model.create(body)
             const resp = await model.save()
             res.json(model)
         } catch (err) {
+            console.log(err)
             res.json(err)
         }
     })

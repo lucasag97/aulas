@@ -13,9 +13,19 @@ export default async () => {
             password = encrypt(body.password.toString())
         }
         try {
-            const response = await Model.findOne({ where: { username: body.username, password: password }})
-            res.json(response)
+            const user = await Model.findOne({ where: { username: body.username }})
+            if (user) {
+                if (password !== user.password) {
+                    res.json({ message: 'Incorrect username or password' })
+                    return
+                }
+            } else {
+                res.json({ message: "User doesn't exists" })
+                return
+            }
+            res.json({ accessToken: user.accessToken })
         } catch (err) {
+            console.log(err)
             res.json(err)
         }
     })
