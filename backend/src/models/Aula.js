@@ -1,8 +1,9 @@
 import { sequelize } from '../db'
+import Edificio from './Edificio'
 import Sequelize from 'sequelize'
 
 const Aula = sequelize.define('Aula', {
-    id: { type: Sequelize.SMALLINT, primaryKey: true },
+    id: { type: Sequelize.SMALLINT, autoIncrement: true, primaryKey: true },
     nombre: Sequelize.STRING,
     id_edificio: {
         type: Sequelize.SMALLINT,
@@ -13,5 +14,7 @@ const Aula = sequelize.define('Aula', {
     capacidad: Sequelize.INTEGER,
     obs: Sequelize.STRING,
 }, { timestamps: false, tableName: 'aula' })
+
+Aula.hasOne(Edificio, { as: 'edificio', foreignKey: 'id', sourceKey: 'id_edificio' })
 
 export default Aula

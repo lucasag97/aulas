@@ -16,14 +16,12 @@ export default async () => {
             const user = await Model.findOne({ where: { username: body.username }})
             if (user) {
                 if (password !== user.password) {
-                    res.json({ message: 'Incorrect username or password' })
-                    return
+                    return res.json({ message: 'Incorrect username or password' })
                 }
             } else {
-                res.json({ message: "User doesn't exists" })
-                return
+                return res.json({ message: "User doesn't exists" })
             }
-            res.json({ accessToken: user.accessToken })
+            return res.json({ accessToken: user.accessToken })
         } catch (err) {
             console.log(err)
             res.json(err)

@@ -6,8 +6,10 @@ import bodyParser from 'body-parser'
 import initializeDb from './db'
 import middleware from './middleware'
 import api from './api'
+import dotenv from 'dotenv'
 import config from './config.json'
 
+dotenv.config()
 const app = express()
 
 app.server = http.createServer(app)

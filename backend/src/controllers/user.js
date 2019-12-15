@@ -50,7 +50,7 @@ export default async () => {
                 return
             }
             const model = await Model.create(body)
-            const resp = await model.save()
+            await model.save()
             res.json(model)
         } catch (err) {
             console.log(err)
