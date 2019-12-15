@@ -34,6 +34,17 @@ npm start
 
 ```
 
+Tecnologías utilizadas
+-------
+
+- Backend
+
+NodeJS + ExpressJS + MySQL
+
+- Frontend
+
+ReactJS
+
 License
 -------
 
