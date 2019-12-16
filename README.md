@@ -37,13 +37,9 @@ npm start
 Tecnologías utilizadas
 -------
 
-- Backend
+- **Backend**: NodeJS + ExpressJS + MySQL
 
-NodeJS + ExpressJS + MySQL
-
-- Frontend
-
-ReactJS
+- **Frontend**: ReactJS
 
 License
 -------

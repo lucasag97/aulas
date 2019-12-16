@@ -1,8 +1,8 @@
 import React from 'react'
 import logo from './assets/img/logo.svg'
-import './assets/styles/App.sass'
+import './App.sass'
 
-function App () {
+export default function App () {
   return (
     <div className="App">
       <header className="App-header">
@@ -14,5 +14,3 @@ function App () {
     </div>
   )
 }
-
-export default App
