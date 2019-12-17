@@ -28,6 +28,6 @@ const User = sequelize.define('User', {
         referencesKey: 'id'
     },
     verification_code: Sequelize.STRING
-}, { timestamps: false })
+}, { timestamps: false, tableName: 'users' })
 
 export default User
