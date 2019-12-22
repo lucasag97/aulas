@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import './styles/Login.sass'
 
 export default class Login extends React.Component {
