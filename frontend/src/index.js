@@ -1,14 +1,24 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router} from 'react-router-dom'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import App from './App'
+import Login from './pages/Login'
+import Home from './pages/Home'
+import Navigation from './components/Navigation'
 import * as serviceWorker from './serviceWorker'
+import { withRouter } from 'react-router'
+
+const NavWithRouter = withRouter(Navigation)
+
 
 const router = (
     <Router>
-        <Route exact path="/" component={App} />
+        <Route path="/" component={NavWithRouter}/>
+        {/* <Navigation/> */}
+        <Route exact path="/" component={Home}>
+        </Route>
+        <Route exact path="/login" component={Login} />
     </Router>
   )
 
